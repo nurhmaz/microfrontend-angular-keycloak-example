@@ -22,7 +22,7 @@ Create a new realm called `demo` (find the `add realm` button in the drop-down
    `http://localhost:3000` \
    `http://localhost:3200` \
    `http://localhost:5000`
-
+   Enabled `PKCE`. See screenshot 3.
 ![Keycloak Client Configuration 1](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/1.png)
 ![Keycloak Client Configuration 2](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/2.png)
 ![Keycloak Client Configuration 3](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/3.png)
@@ -56,7 +56,7 @@ Create a new realm called `demo` (find the `add realm` button in the drop-down
 # How it works
 1. For learning about microfrontend go here: \
    https://github.com/angular-architects/module-federation-plugin/blob/main/libs/mf/tutorial/tutorial.md
-2. For learning about keycloak integration in angular:
+2. For learning about keycloak integration in angular: \
    https://github.com/mauriciovigolo/keycloak-angular/blob/master/README.md
 3. Go to (``http://localhost:5000``), log in to `shell` application via keycloak.
 4. By default `user-profile` page of `mfe2` microfrontend application page is opened.
