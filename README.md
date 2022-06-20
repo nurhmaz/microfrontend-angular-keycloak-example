@@ -21,7 +21,7 @@ Create a new realm called `demo` (find the `add realm` button in the drop-down
    * Web Origins:  
    `http://localhost:3000` \
    `http://localhost:3200` \
-   `http://localhost:5000`
+   `http://localhost:5000` \
    Enabled `PKCE`. See screenshot 3.
 ![Keycloak Client Configuration 1](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/1.png)
 ![Keycloak Client Configuration 2](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/2.png)
