@@ -60,7 +60,6 @@ Create a new realm called `demo` (find the `add realm` button in the drop-down
    https://github.com/mauriciovigolo/keycloak-angular/blob/master/README.md
 3. Go to (``http://localhost:5000``), log in to `shell` application via keycloak.
 4. By default `user-profile` page of `mfe2` microfrontend application page is opened.
-5. You won't have access to same session in either page of microfrontend application because those module behave like lazy module
-6. To get same session we save `accessToken`,`idToken`,`refreshToken`. We have access to same session in `authguard.ts`.  
-Another option is to save these tokens in `localStorage` or `sessionStorage`.
+5. We don't have access to same session in either page of microfrontend application because those module behave like lazy module
+6. To get same session we save `accessToken`,`idToken`,`refreshToken` using `ngrx`. We do this in `AppComponent` of `shell`. Another option is to save these tokens in `localStorage` or `sessionStorage`.
 7. Then we initialize `KeycloakService` with `accessToken`,`idToken`,`refreshToken`

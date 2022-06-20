@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { StoreModule } from '@ngrx/store';
 import { keycloakConfigInfo } from 'src/environments/environment';
+import { keycloakInfoReducer } from './state/token.reducer';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -35,7 +36,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     BrowserModule,
     AppRoutingModule,
     KeycloakAngularModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({ keycloakInfoService: keycloakInfoReducer })
   ],
   providers: [
     {

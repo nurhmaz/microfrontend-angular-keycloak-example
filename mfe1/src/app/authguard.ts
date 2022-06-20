@@ -19,12 +19,6 @@ export class AuthGuard extends KeycloakAuthGuard {
     protected store: Store
   ) {
     super(router, keycloak);
-
-    keycloak.getToken().then(token => {
-      const keycloakInstance = this.keycloak.getKeycloakInstance()
-      const keycloakInfo = new KeycloakInfo(token, keycloakInstance.idToken, keycloakInstance.refreshToken)
-      this.store.dispatch(update({ keycloakInfo }))
-    }).catch(error => console.log(error))
   }
 
   public async isAccessAllowed(
