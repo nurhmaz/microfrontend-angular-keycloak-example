@@ -23,12 +23,12 @@ Create a new realm called `demo` (find the `add realm` button in the drop-down
    `http://localhost:3200` \
    `http://localhost:5000`
 
-![Keycloak Client Configuration 1](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/1.png)
-![Keycloak Client Configuration 2](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/2.png)
-![Keycloak Client Configuration 3](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/3.png)
+![Keycloak Client Configuration 1](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/1.png)
+![Keycloak Client Configuration 2](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/2.png)
+![Keycloak Client Configuration 3](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/3.png)
 
 2. Once the client is created click on the Installation tab select `Keycloak OIDC JSON` for `Format Option`. Here you will see `auth-server-url`,`realm`. These will be needed later for keycloak configuration in angular app.
-   ![Keycloak Client Installation](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/4.png)
+   ![Keycloak Client Installation](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/4.png)
 
 ## Part 2: Start Angular Applications
 1. Move into mfe1 and install the dependencies with npm:
@@ -46,11 +46,11 @@ Create a new realm called `demo` (find the `add realm` button in the drop-down
 3. Open `environment.ts` file in your favorite IDE. Replace `url`, `realm`, `clientId` if they are different in your case. Here `url` is `auth-server-url`, `realm` is `realm` from Part 1.
 4. Now run all angular applications (``ng serve``)
 5. Go to (``http://localhost:3000``) to check `mfe1` has started.
-   ![mfe1](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/5.png)
+   ![mfe1](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/5.png)
 6. Go to (``http://localhost:3200``) to check `mfe2` has started.
-   ![mfe2](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/6.png)
+   ![mfe2](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/6.png)
 7. Go to (``http://localhost:5000``) to check `shell` has started.
-   ![shell](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/7.png)
+   ![shell](https://github.com/nurhmaz/microfrontend-angular-keycloak-example/blob/main/7.png)
 8. You will only need to sign in once to access `mfe1`,`mfe2`,`shell`
 
 # How it works
