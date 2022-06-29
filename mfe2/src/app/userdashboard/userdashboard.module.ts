@@ -7,6 +7,7 @@ import { AuthGuard } from '../authguard';
 import { keycloakInfoReducer } from '../state/token.reducer';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AccountService } from '../service/account.service';
 
 const USER_DASHBOARD_ROUTES: Routes = [
   {
@@ -31,6 +32,9 @@ const USER_DASHBOARD_ROUTES: Routes = [
     RouterModule.forChild(USER_DASHBOARD_ROUTES),
     KeycloakAngularModule,
     StoreModule.forFeature('keycloakInfoService', keycloakInfoReducer)
+  ],
+  providers: [
+    AccountService
   ]
 })
 export class UserdashboardModule { }

@@ -17,7 +17,7 @@ export const environment = {
 
 
 export const keycloakConfigInfo = {
-  url: 'http://127.0.0.1:8080/',
-  realm: 'demo',
-  clientId: 'js-console'
+  url: 'http://127.0.0.1:8180/',
+  realm: 'full-stack-demo',
+  clientId: 'spa-public'
 };
