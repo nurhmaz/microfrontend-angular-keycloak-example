@@ -69,14 +69,10 @@ export class UserprofileComponent implements OnInit {
       const keys = resp.headers.keys();
       const headers = keys.map(key =>
         `${key}: ${resp.headers.get(key)}`);
-      console.log("🚀 ~ file: userprofile.component.ts ~ line 73 ~ UserprofileComponent ~ this.accountService.getAccountDetailsResponse ~ headers", headers)
+      console.log("🚀 ~ file: userprofile.component.ts ~ line 72 ~ UserprofileComponent ~ this.accountService.getAccountDetailsResponse ~ headers", headers)
 
       console.log(resp.body)
-    }, error => {
-      const keys = error.headers.keys();
-      console.log("🚀 ~ file: userprofile.component.ts ~ line 80 ~ UserprofileComponent ~ this.accountService.getAccountDetailsResponse ~ keys", keys)
-      console.log(error)
-    }
+    }, error => console.log(error)
     )
   }
 }
