@@ -25,13 +25,9 @@ export class UserprofileComponent implements OnInit {
 
   public async ngOnInit() {
     this.keycloakInfoService$.subscribe((keycloakInfo) => this.initKeycloak(keycloakInfo));
-
-    this.showAccountDetails();
   }
 
   async initKeycloak(keycloakInfo: KeycloakInfo) {
-    console.log(keycloakInfo.token)
-
     await this.keycloak.init({
       config: {
         url: keycloakConfigInfo.url,
@@ -48,6 +44,7 @@ export class UserprofileComponent implements OnInit {
 
     this.isLoggedIn = await this.keycloak.isLoggedIn();
     this.loadProfile();
+    this.showAccountDetails();
   }
 
   async loadProfile() {
@@ -66,7 +63,7 @@ export class UserprofileComponent implements OnInit {
     this.keycloak.logout();
   }
 
-  public showAccountDetails() {
+  async showAccountDetails() {
     this.accountService.getAccountDetailsResponse().subscribe(resp => {
       // display its headers
       const keys = resp.headers.keys();
@@ -75,6 +72,11 @@ export class UserprofileComponent implements OnInit {
       console.log("🚀 ~ file: userprofile.component.ts ~ line 73 ~ UserprofileComponent ~ this.accountService.getAccountDetailsResponse ~ headers", headers)
 
       console.log(resp.body)
-    }, error => console.log(error))
+    }, error => {
+      const keys = error.headers.keys();
+      console.log("🚀 ~ file: userprofile.component.ts ~ line 80 ~ UserprofileComponent ~ this.accountService.getAccountDetailsResponse ~ keys", keys)
+      console.log(error)
+    }
+    )
   }
 }

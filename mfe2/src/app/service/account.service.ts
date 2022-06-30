@@ -11,3 +11,16 @@ export class AccountService {
       'http://localhost:9638/account/view/1', { observe: 'response' });
   }
 }
+// //: Observable<HttpResponse<any>>
+// getAccountDetailsResponse() {
+//   return this.http.get(
+//     'http://localhost:9638/account/view/1', { observe: 'response',responseType: 'text'})
+//     // .pipe(
+//     //   tap( // Log the result or error
+//     //   {
+//     //     next: (data: any) => console.log(data),
+//     //     error: (error: any) => console.log(error)
+//     //   }
+//     //   )
+//     // );
+// }

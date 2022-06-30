@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { StoreModule } from '@ngrx/store';
 import { keycloakConfigInfo } from 'src/environments/environment';
 import { keycloakInfoReducer } from './state/token.reducer';
+import { SecuredHttpInterceptor } from './interceptor/secured-http.interceptor';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -46,7 +47,12 @@ function initializeKeycloak(keycloak: KeycloakService) {
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService]
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SecuredHttpInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })
