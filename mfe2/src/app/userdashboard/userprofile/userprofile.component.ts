@@ -52,7 +52,7 @@ export class UserprofileComponent implements OnInit {
 
   setScopes() {
     const permissions: Permission[] = JSON.parse(localStorage.getItem('permissions')!);
-    permissions?.forEach(permission => {
+    permissions.forEach(permission => {
       permission.scopes.forEach(scope => this.allowedScopes.push(scope))
     })
   }

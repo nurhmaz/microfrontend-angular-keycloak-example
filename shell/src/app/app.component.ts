@@ -33,7 +33,10 @@ export class AppComponent implements OnInit {
     this.accountService.getRPT().subscribe(resp => {
       const rptTokenInfo: RPTInfo = jwt_decode(resp.body.access_token);
       localStorage.setItem('permissions', JSON.stringify(rptTokenInfo.authorization?.permissions))
-    }, error => console.log(error)
+    }, error => {
+      console.log(error)
+      localStorage.setItem('permissions', JSON.stringify([]))
+    }
     )
   }
 }
