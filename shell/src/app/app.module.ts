@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { keycloakInfoReducer } from './state/token.reducer';
+import { AccountService } from 'src/service/account.service';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -46,7 +47,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService]
-    }
+    },
+    AccountService
   ],
   bootstrap: [AppComponent]
 })
