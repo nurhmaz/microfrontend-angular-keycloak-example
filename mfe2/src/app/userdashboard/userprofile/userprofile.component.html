@@ -31,10 +31,19 @@
 
 <br>
 
-<button *ngIf="this.allowedScopes.includes('account-view')" type="button" (click)="showAccountDetails()">Get User
-  Details</button>
+<button *ngIf="this.allowedScopes.includes('account-view')" type="button" (click)="showAccountDetails()">User
+  Info</button>
 
-<p *ngIf="responseReceived">{{responseReceived}}</p>
+<button *ngIf="this.allowedScopes.includes('account-create')" type="button" (click)="createUser()">Create
+  User</button>
+
+<button *ngIf="this.allowedScopes.includes('account-update')" type="button" (click)="updateUser()">Update
+  User</button>
+
+<button *ngIf="this.allowedScopes.includes('account-delete')" type="button" (click)="deleteUser()">Delete
+  User</button>
+
+<p *ngIf="responseReceived">{{responseReceived | json}}</p>
 
 <p>
   <a routerLink="/flights/flights-search">Search Flights</a>
