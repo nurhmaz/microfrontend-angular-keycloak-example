@@ -7,7 +7,7 @@ import { keycloakConfigInfo } from 'src/environments/environment';
 export class AccountService {
   constructor(private http: HttpClient) { }
 
-  getRptToken(): Observable<HttpResponse<any>> {
+  getRPT(): Observable<HttpResponse<any>> {
     const body = new HttpParams()
       .set('grant_type', 'urn:ietf:params:oauth:grant-type:uma-ticket')
       .set('audience', 'auth-rest');
