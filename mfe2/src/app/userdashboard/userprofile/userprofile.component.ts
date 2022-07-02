@@ -6,6 +6,7 @@ import { KeycloakInfo } from 'src/app/model/keycloak-info';
 import { AccountService } from 'src/app/service/account.service';
 import { selectToken } from 'src/app/state/token.selectors';
 import { keycloakConfigInfo } from 'src/environments/environment';
+import { Permission } from 'src/model/rpt-info';
 
 @Component({
   selector: 'app-userprofile',
@@ -18,6 +19,8 @@ export class UserprofileComponent implements OnInit {
   public isLoggedIn = false;
   public userProfile: KeycloakProfile | null = null;
   keycloakInfoService$ = this.store.select(selectToken);
+  allowedScopes: string[] = [];
+  responseReceived: string | null = null;
 
   constructor(private readonly keycloak: KeycloakService, private readonly store: Store, private readonly accountService: AccountService) {
 
@@ -44,7 +47,14 @@ export class UserprofileComponent implements OnInit {
 
     this.isLoggedIn = await this.keycloak.isLoggedIn();
     this.loadProfile();
-    this.showAccountDetails();
+    this.setScopes();
+  }
+
+  setScopes() {
+    const permissions: Permission[] = JSON.parse(localStorage.getItem('permissions')!);
+    permissions.forEach(permission => {
+      permission.scopes.forEach(scope => this.allowedScopes.push(scope))
+    })
   }
 
   async loadProfile() {
@@ -71,7 +81,7 @@ export class UserprofileComponent implements OnInit {
         `${key}: ${resp.headers.get(key)}`);
       console.log("🚀 ~ file: userprofile.component.ts ~ line 72 ~ UserprofileComponent ~ this.accountService.getAccountDetailsResponse ~ headers", headers)
 
-      console.log(resp.body)
+      this.responseReceived = resp.body;
     }, error => console.log(error)
     )
   }

@@ -6,8 +6,11 @@ import { Observable } from 'rxjs';
 export class AccountService {
   constructor(private http: HttpClient) { }
 
-  getAccountDetailsResponse(): Observable<HttpResponse<any>> {
-    return this.http.get<any>(
-      'http://localhost:9638/account/view/1', { observe: 'response' });
+  getAccountDetailsResponse() {
+    // The Observable returned by get() is of type Observable<string>
+    // because a text response was specified.
+    // There's no need to pass a <string> type parameter to get().
+    return this.http.get(
+      'http://localhost:9638/account/view/1', { observe: 'response', responseType: 'text' });
   }
 }

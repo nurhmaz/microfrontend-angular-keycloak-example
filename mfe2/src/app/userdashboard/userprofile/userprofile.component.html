@@ -29,6 +29,13 @@
   </table>
 </ng-container>
 
+<br>
+
+<button *ngIf="this.allowedScopes.includes('account-view')" type="button" (click)="showAccountDetails()">Get User
+  Details</button>
+
+<p *ngIf="responseReceived">{{responseReceived}}</p>
+
 <p>
   <a routerLink="/flights/flights-search">Search Flights</a>
 </p>

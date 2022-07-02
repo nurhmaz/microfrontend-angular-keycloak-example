@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
     private readonly accountService: AccountService) {
     //
   }
+
   async ngOnInit() {
     const token = await this.keycloak.getToken();
     const keycloakInstance = this.keycloak.getKeycloakInstance()
