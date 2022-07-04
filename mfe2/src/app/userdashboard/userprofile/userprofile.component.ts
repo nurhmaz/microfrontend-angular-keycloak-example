@@ -74,6 +74,10 @@ export class UserprofileComponent implements OnInit {
     this.keycloak.logout();
   }
 
+  showAccounts() {
+    this.accountService.getUsers().subscribe(resp => this.responseReceived = resp.body, error => console.log(error))
+  }
+
   showAccountDetails() {
     this.accountService.getUserInfo().subscribe(resp => {
       // display its headers

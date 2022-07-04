@@ -31,6 +31,9 @@
 
 <br>
 
+<button *ngIf="this.allowedScopes.includes('account-view')" type="button" (click)="showAccounts()">Users
+  Info</button>
+
 <button *ngIf="this.allowedScopes.includes('account-view')" type="button" (click)="showAccountDetails()">User
   Info</button>
 
