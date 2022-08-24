@@ -4,27 +4,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 import { StoreModule } from '@ngrx/store';
-import { keycloakConfigInfo } from 'src/environments/environment';
+import { AccountService } from 'src/service/account.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { keycloakInfoReducer } from './state/token.reducer';
-import { AccountService } from 'src/service/account.service';
 
 function initializeKeycloak(keycloak: KeycloakService) {
-  return () =>
-    keycloak.init({
-      config: {
-        url: keycloakConfigInfo.url,
-        realm: keycloakConfigInfo.realm,
-        clientId: keycloakConfigInfo.clientId
-      },
-      initOptions: {
-        onLoad: 'login-required',
-        pkceMethod: 'S256'
-      }
-    });
+  const realm = localStorage.getItem('realm')
+  const clientId = localStorage.getItem('clientId')
+
+  if (!realm && !clientId) {
+    return () => { };
+  } else {
+    return () =>
+      keycloak.init({
+        config: {
+          url: 'http://localhost:8180/',
+          realm: realm!,
+          clientId: clientId!
+        },
+        initOptions: {
+          onLoad: 'login-required',
+          pkceMethod: 'S256',
+        }
+      });
+  }
 }
 
 @NgModule({
@@ -47,7 +53,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
       multi: true,
       deps: [KeycloakService]
     },
-    AccountService
+    AccountService,
   ],
   bootstrap: [AppComponent]
 })

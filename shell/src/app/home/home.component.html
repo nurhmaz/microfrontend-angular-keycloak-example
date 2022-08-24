@@ -1,1 +1,15 @@
-<!-- <h1>Welcome!</h1> -->
+<ng-container *ngIf="!isLoggedIn">
+  <h1>Welcome!</h1>
+
+  <br>
+  <button (click)="saveDataAndReload('demo1','public-demo1')">Demo1</button>
+  <br>
+  <button (click)="saveDataAndReload('demo2','public-demo2')">Demo2</button>
+  <br>
+  <button (click)="saveDataAndReload('demo3','public-demo3')">Demo3</button>
+  <br>
+  <br>
+</ng-container>
+
+<br><br><br>
+Login Status: {{isLoggedIn}}
