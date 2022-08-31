@@ -1,6 +1,9 @@
-<ng-container *ngIf="!isLoggedIn">
-  <h1>Welcome!</h1>
 
+<h1>Welcome!</h1>
+
+<ng-container *ngIf="!isLoggedIn">
+  <br>
+  <button (click)="saveDataAndReload('full-stack-demo','js-public')">Full Stack Demo</button>
   <br>
   <button (click)="saveDataAndReload('demo1','public-demo1')">Demo1</button>
   <br>
@@ -13,3 +16,8 @@
 
 <br><br><br>
 Login Status: {{isLoggedIn}}
+
+<ng-container *ngIf="isLoggedIn">
+  <br>
+  <button (click)="logout()">Logout</button>
+</ng-container>

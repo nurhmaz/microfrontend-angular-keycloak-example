@@ -21,9 +21,8 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      console.log(this.keycloak)
-      const isLoggedIn = await this.keycloak.isLoggedIn();
-      console.log("🚀 ~ file: app.component.ts ~ line 26 ~ AppComponent ~ ngOnInit ~ isLoggedIn", isLoggedIn)
+      // console.log(this.keycloak)
+      // const isLoggedIn = await this.keycloak.isLoggedIn();
 
       // if (isLoggedIn) {
       //   const token = await this.keycloak.getToken();

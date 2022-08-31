@@ -21,7 +21,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     return () =>
       keycloak.init({
         config: {
-          url: 'http://localhost:8180/',
+          url: 'http://127.0.0.1:8180/',
           realm: realm!,
           clientId: clientId!
         },
